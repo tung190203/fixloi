@@ -80,20 +80,16 @@ public function get_OneUser()
 public function update_User()
 {
     
-      if(isset($_POST['Update']) &&($_POST['Update'])){
+      if(isset($_POST['update']) &&($_POST['update'])){
         $id = $_POST['id'];
         $name = $_POST['username'];
         $email = $_POST['email'];
         $address = $_POST['address'];
         $phone = $_POST['phone'];
         $newpassword = $_POST['newpassword'];
-        $role=1;   
-        // $this->updateUser($id,$name,$email,$address,$phone,$newpassword,$role);
-        header('Location:index.php?act=product');
-      }else{
-        header('Location:index.php?act=user');
+       $role = $_POST['role'];
+        $this->updateUser($id,$name,$email,$address,$phone,$newpassword,$role);
       }
 }
-
 
 }

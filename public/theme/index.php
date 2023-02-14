@@ -22,7 +22,7 @@ if (isset($_GET['act']) && ($_GET['act'])) {
         case 'updateuser':
             $user = new UserController();
             $user->update_User();
-            // $user->get_AllUser();
+            $user->get_AllUser();
         break;
         case 'deleteus':
             $user = new UserController();

@@ -84,6 +84,31 @@
                             <label for="newPassword">New password</label>
                             <input type="password" class="form-control" id="newPassword" name="newpassword" value="<?php  echo $Password?>"/>
                           </div>
+                          <div class="form-group mb-4">
+                            <label for="newPassword">Role</label>
+                            <!-- <input type="text" class="form-control" id="newPassword" name="newpassword" value="<?php  echo $Password?>"/>
+                          </div> -->
+                          <select name="role" id="" class="form-control">
+                            <?php 
+                            if($role==0){
+                              $roles= "User";
+                              $rl = 1;
+                              $rs= "Admin";
+                            }else{
+                              $roles="Admin";
+                              $rl = 0;
+                              $rs ="User";
+                            }   
+                            if($rl==0){
+                              $role = 1;
+                              $roles ="Admin";
+                            }
+                            ?>
+                            <option value="<?php echo $role ?>"><?php echo $roles ?></option>
+                            <option value="<?php echo $rl ?>"><?php echo $rs ?></option>
+                            
+                            
+                          </select>
 
                           <div class="form-group mb-4">
                             <label for="conPassword">Confirm password</label>
@@ -94,9 +119,8 @@
                             ?>
                           <div class="d-flex justify-content-end mt-5">
                             <input type="hidden" name="id" value="<?php echo $User_id ?>">
-                            <button type="submit" class="btn btn-primary mb-2 btn-pill" name="Update">
-                              Update Profile
-                            </button>
+                            
+                            <input type="submit" class="btn btn-primary" value="Update Profile" name="update" >
                           </div>
                         </form>
                       </div>
