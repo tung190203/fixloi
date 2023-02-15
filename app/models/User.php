@@ -15,6 +15,10 @@ class User extends BaseModel{
         $sql = "INSERT INTO User VALUES(null,'$name','$email',null,null,'$password',0)";
         $this->getData($sql);
     }
+    public function addUserAdmin($name,$email,$address,$phone,$password,$role){
+        $sql = "INSERT INTO User VALUES(null,'$name','$email',$address,$phone,'$password',$role)";
+        $this->getData($sql);
+    }
     public function deleteUser($id){
         $sql = "DELETE FROM User WHERE User_id=".$id;
         $this->getData($sql);

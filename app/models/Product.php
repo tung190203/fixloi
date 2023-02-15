@@ -18,6 +18,18 @@ class Product extends BaseModel
         $sql ="SELECT * FROM Products ORDER BY Pr_id DESC LIMIT 3";
         return $this->getData($sql);
     }
+    public function addProduct($namepr,$desc,$image,$cate_id,$price){
+        $sql ="INSERT INTO Products VALUES($namepr,$desc,$image,$cate_id,$price) ";
+        $this->getData($sql);
+    }
+    public function deleteProduct($id){
+        $sql = "DELETE FROM Products WHERE Pr_id=".$id;
+        $this->getData($sql);
+    }
+    public function updateProduct($id,$namepr,$desc,$image,$cate_id,$price){
+        $sql  ="UPDATE `Products` SET `Name_pr`='$namepr',`Description`='$desc',`Image`='$image',`Cate_id`='$cate_id',`Price`='$price'";
+        $this->getData($sql);
 
+    }
 }
 ?>

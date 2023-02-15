@@ -6,5 +6,16 @@ class ProductController extends Product{
      $result=$this->getAllProduct();
      include_once '../../public/theme/product.php';
     }
+    public function add_Product(){
+
+    }
+    public function delete_Product(){
+$id = $_GET['Cate_id'];
+$this->deleteProduct($id);
+header('Location:index.php?act=product');
+    }
+    public function update_Product(){
+
+    }
 }
 ?>

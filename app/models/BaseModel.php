@@ -30,6 +30,5 @@ class BaseModel{
             return $stmt->fetchAll();
         }
         return $stmt->fetch();
-    }
-    
+    }  
 }

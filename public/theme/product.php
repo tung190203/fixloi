@@ -27,7 +27,10 @@
 				<div class="card card-default">
 					<div class="card-header card-header-border-bottom d-flex justify-content-between">
 						<h2>Products-data-table</h2>
-
+						<div>
+						<input type="button" value="Add" class="btn btn-info" data-toggle="modal" data-target="#exampleModalForm">
+						
+						</div>
 					</div>
 
 					<div class="card-body">
@@ -37,12 +40,13 @@
 								<thead>
 									<tr>
 										<th></th>
+										
 										<th>Product ID</th>
 										<th>Product Name</th>
 										<th>Images</th>
 										<th>Description</th>
 										<th>Price</th>
-
+										<th>Operation</th>
 									</tr>
 								</thead>
 
@@ -59,11 +63,16 @@
 										?>
 										<tr>
 											<td class="details-control"></td>
+											
 											<td><?php echo $Pr_id  ?></td>
 											<td><?php echo $Name_pr ?></td>
 											<td><?php echo $Image ?></td>
 											<td><?php echo $Description ?></td>
 											<td><?php echo $Price ?></td>
+											<td>
+											<a href="index.php?act=updatepr&Pr_id=<?php echo $Pr_id ?>"><input type="button" value="Update" class="btn btn-primary"></a>
+											<a href="index.php?act=deletepr&Pr_id=<?php echo $Pr_id ?>"><input type="button" value="Delete" class="btn btn-danger">	</a>
+											</td>
 										</tr>
 									<?php
 									}
@@ -71,6 +80,51 @@
 
 								</tbody>
 							</table>
+							<div class="modal fade" id="exampleModalForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalFormTitle" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalFormTitle">
+                      Add Product
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+
+                  <div class="modal-body">
+                    <form action="index.php?act=product" method="POST">
+					<div class="form-group">
+                        <label for="exampleInputEmail1">Categories</label>
+                        <select name="categories" id="">
+							<option value=""></option>
+						</select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Product Name</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" "
+                        placeholder=" Enter Product Name" name="prname" />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Image</label>
+                        <input type="file" class="form-control" id="exampleInputEmail1"  "
+                        placeholder=" Enter image" name="image" />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">Description</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" "
+                        placeholder=" Enter Description" name="desc" />
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputPassword1">Price</label>
+                        <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Price" name="price" />
+                      </div>
+                      <input type="submit" value="Add" class="btn btn-primary " id="btnsm" name="add" onsubmit="location.reload()" >
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
 						</div>
 					</div>
 				</div>
@@ -99,10 +153,11 @@
 	/* Formatting function for row details - modify as you need */
 	function format() {
 		return (
+			
 			'<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
 			"<tr>" +
-			"<td>Categories:</td>" +
-			"<td><?php echo $Cate_id ?> </td>" +
+			"<td>More Infor:</td>"+
+			"<td></td>"+
 			"</tr>" +
 			"</table>"
 		);

@@ -13,9 +13,16 @@
                     <div class="card-img mx-auto rounded-circle">
                       <img src="assets/img/avatar-facebook-mac-dinh-8.jpeg" alt="user image" />
                     </div>
-
+                    <?php
+                          // echo '<pre>';
+                          // var_dump($result);
+                          // echo '</pre>';
+                          foreach($result as $value){
+                            extract($value);
+                          
+                          ?>
                     <div class="card-body">
-                      <h4 class="py-2 text-dark"> Nguyễn Thanh Tùng</h4>
+                      <h4 class="py-2 text-dark"><?php echo $Name ?></h4>
                       
                     </div>
                   </div>
@@ -27,15 +34,15 @@
                     <p class="text-dark font-weight-medium pt-4 mb-2">
                       Email address
                     </p>
-                    <p>tungntph19820@fpt.edu.vn</p>
+                    <p><?php echo $Email ?></p>
                     <p class="text-dark font-weight-medium pt-4 mb-2">
                       Phone Number
                     </p>
-                    <p>0869888319</p>
+                    <p><?php echo $Phone ?></p>
                     <p class="text-dark font-weight-medium pt-4 mb-2">
                       Address
                     </p>
-                    <p>Hà Nội</p>
+                    <p><?php echo $Address ?></p>
                   </div>
                 </div>
               </div>
@@ -53,14 +60,7 @@
                     <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="settings-tab">
                       <div class="tab-pane-content mt-5">
                         <form  action="index.php?act=updateuser" method="post" >
-                          <?php
-                          // echo '<pre>';
-                          // var_dump($result);
-                          // echo '</pre>';
-                          foreach($result as $value){
-                            extract($value);
-                          
-                          ?>
+                        
                           <div class="form-group mb-4">
                             <label for="userName">User name</label>
                             <input type="text" class="form-control" id="userName" value="<?php echo $Name?>" name="username" />
@@ -79,15 +79,8 @@
                             <label for="userName">Phone</label>
                             <input type="text" class="form-control" id="Phone" value="<?php echo $Phone ?>" name="phone" />
                           </div>
-            
-                          <div class="form-group mb-4">
-                            <label for="newPassword">New password</label>
-                            <input type="password" class="form-control" id="newPassword" name="newpassword" value="<?php  echo $Password?>"/>
-                          </div>
                           <div class="form-group mb-4">
                             <label for="newPassword">Role</label>
-                            <!-- <input type="text" class="form-control" id="newPassword" name="newpassword" value="<?php  echo $Password?>"/>
-                          </div> -->
                           <select name="role" id="" class="form-control">
                             <?php 
                             if($role==0){
@@ -109,11 +102,19 @@
                             
                             
                           </select>
+                          <div class="form-group mb-4">
+                            <label for="newPassword">New password</label>
+                            <input type="password" class="form-control" id="newPassword" name="newpassword" value="<?php  echo $Password?>"/>
+                          </div>
+                        
+                           
+                         
 
                           <div class="form-group mb-4">
                             <label for="conPassword">Confirm password</label>
                             <input type="password" class="form-control" id="conPassword" name="comfirm_password" value="<?php  echo $Password?>" />
                           </div>
+
                             <?php
                           }
                             ?>

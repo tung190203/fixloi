@@ -25,6 +25,17 @@ class UserController extends User
         }
         require_once './public/register.php';
     }
+    public function add_UderAdmin(){
+        if(isset($_POST['add']) &&($_POST['add'])){
+            $name = $_POST['username'];
+            $email = $_POST['email'];
+            $address = $_POST['address'];
+            $phone = $_POST['phone'];
+            $password = $_POST['password'];
+            $role =0;
+            $this->addUserAdmin($name,$email,$address,$phone,$password,$role);
+        }
+    }
 
     public function check_User()
     {
